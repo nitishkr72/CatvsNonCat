@@ -8,7 +8,6 @@ import numpy as np
 import h5py
 import matplotlib.pyplot as plt
 
-plt.imshow(f, cmap=plt.cm.gray)<matplotlib.image.AxesImage object at 0x...>
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 def load_data():
@@ -27,7 +26,7 @@ def load_data():
     
     return train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes
 
-# np.random.seed(1)
+np.random.seed(1)
 
 
 # In[277]:
@@ -73,11 +72,9 @@ def Prop(X, W, b, Y, i):
     Z = np.dot(W.T, X) + b
     A = sigmoid(Z)
     
-#     print('====================')
-#     print(m, 'i: ', i)
+
     cost = -np.sum(np.dot(Y, np.log(A).T) + np.dot(1-Y, np.log(1-A).T))/m
-#     print('cost: ', cost)
-#     print('====================')
+
     AY = A-Y
     dW = np.dot(X, AY.T)/m
     db = np.sum(AY)/m
